@@ -1,0 +1,35 @@
+<h2>Editar categoria item: {{ editar.getDescripcion() }}</h2>
+					<form method="post" action="ABM_CategoriasItem.php" id="form_cat_edit" name="form_cat_edit">
+						<input type="hidden" id="id" name="id" value="{{ editar.getId() }}">
+						<table>
+							<tr>
+								<td>Descripcion:</td>
+								<td><input type="text" name="descripcion" id="descripcion" value="{{ editar.getDescripcion() }}" class="required"></td>
+							</tr>
+							<tr>
+							<td>Categoria padre:</td>
+							<td>
+								<select name="padre_id">
+								<option value=0 {% if editar.getCategoriaPadreId() is null %} selected='selected'{% endif %}>(Ninguna)</option>
+								
+								{% for categoria in categorias %}
+									<option value="{{ categoria.getId() }}"
+										{% if editar.getCategoriaPadreId() == categoria.getId() %} selected = 'selected' 
+										{% endif %}
+									>{{ categoria.getDescripcion() }}</option>
+								{% endfor %}
+								</select>
+							</td>
+							</tr>
+							<tr>
+							<td>Borrado?:</td>
+							<td>
+								<input type=radio name="borrado" value="0"  {% if editar.getBorrado() == 0 %} CHECKED {% endif %}>No<br> 
+								<input type=radio name="borrado" value="1"  {% if editar.getBorrado() == 1 %} CHECKED {% endif %}>Si<br> 
+							</td>
+							</tr>
+						</table>
+						<br>
+						<input type="submit" name="submitEditar" value="Guardar cambios">
+						<input type="submit" onsubmit="ABM_CategoriasItem.php" value="Cancelar">								
+					</form>

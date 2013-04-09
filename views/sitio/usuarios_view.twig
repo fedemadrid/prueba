@@ -1,0 +1,9 @@
+</thead>
+		<tbody>
+		
+		{% for user in users %}
+			<tr><td><a href='MostrarDatosUsuario.php?id={{ user.getId() }}'>{{ user.getUsername() }}</a></td></tr>
+		{% endfor %}
+
+		</tbody>
+</table>

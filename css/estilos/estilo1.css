@@ -1,0 +1,15 @@
+.label {
+	font-size: 1.5em;
+	color: blue;
+}
+.separador {
+	font-size: 1em;
+}
+.item {
+	font-size: 1em;
+}
+.dato_item {
+	font-size: 1em;
+	color: gray;
+	border: 0;
+}

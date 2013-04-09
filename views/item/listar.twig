@@ -1,0 +1,53 @@
+<a class='enlace' href="?agregar">Agregar item</a>
+					<table id="users-table">
+						<thead>
+						<tr>
+								<th>Descripcion</th> 		
+								<th>Categoria</th>
+								<th>Tipo item</th>								
+								<th>Tipo input</th>
+								<th>Buscable?</th>
+								<th>Repetible?</th>								
+								<th>Borrado?</th>
+
+						</tr>
+						</thead>
+						<tbody>
+							{% for item in items | slice(inicio,itemsxpag) %}
+								<tr><td>{{ item.getDescripcion() }}</td>
+								{% if categs[item.getId()] != null %}
+									<td>{{ categs[item.getId()].getDescripcion() }}</td>
+								{% else %}
+									<td>(Ninguna)</td>
+								{% endif %}
+								{% if tipoItems[item.getId()] != null %}
+									<td>{{ tipoItems[item.getId()].getDescripcion() }}</td>
+								{% else %}
+									<td>(Ninguna)</td>
+								{% endif %}
+								<td>{{ item.getTipoInput() }}</td>
+								{% if item.getBuscable() == 1 %}
+									<td>Si</td>
+								{% else %}
+									<td>No</td>
+								{% endif %}
+								{% if item.getRepetible() == 1 %}
+									<td>Si</td>
+								{% else %}
+									<td>No</td>
+								{% endif %}
+								{% if item.getBorrado() == 1 %}
+									<td>Si</td>
+								{% else %}
+									<td>No</td>
+								{% endif %}
+								<td><a class='enlace' href="?editar={{ item.getId() }}">Editar</a></td></tr>
+							{% endfor %}																																																																																																																																		
+						</tbody>
+					</table>
+					{% for i in range(1, cantpag) %}
+					    <a class='enlace' href="?pagina={{ i }}">{{ i }}</a> 
+					{% endfor %}
+					{% if hayMensaje == true %}
+						<div> Mensaje: {{ mensaje }} </div>
+					{% endif %}					

@@ -1,0 +1,62 @@
+					<h2>Agregar item</h2>
+					<form method="post" action="ABM_Items.php" id="form_item_add" name="form_item_add">
+						<table>
+							<tr>
+								<td>Descripcion:</td>
+								<td><input type="text" name="descripcion" id="descripcion" value="" class="required"></td>
+							</tr>
+							<tr>
+							<td>Categoria:</td>
+							<td>
+								<select name="categoria_id">		
+									{% for categoria in categorias %}
+										<option value="{{ categoria.getId() }}">{{ categoria.getDescripcion() }}</option>
+									{% endfor %}
+								</select>
+							</td>
+							</tr>
+							<tr>
+							<td>Tipo item:</td>
+							<td>
+								<select name="tipo_item_id">	
+								<option value="1">Label</option>
+								<option value="2">Separador</option>
+								<option value="3" selected='selected'>Item</option>								
+								</select>
+							</td>
+							</tr>
+							<tr>
+							<td>Tipo input:</td>
+							<td>
+								<select name="tipo_input">	
+								<option value="text" selected='selected'>text</option>
+								<option value="date">date</option>								
+								</select>
+							</td>
+							</tr>
+							<tr>
+							<td>Buscable?:</td>
+							<td>
+								<input type=radio name="buscable" value="0">No<br>
+								<input type=radio name="buscable" value="1" CHECKED>Si<br>
+							</td>
+							</tr>
+							<tr>
+							<td>Repetible?:</td>
+							<td>
+								<input type=radio name="repetible" value="0" CHECKED>No<br>
+								<input type=radio name="repetible" value="1">Si<br>
+							</td>
+							</tr>
+							<tr>
+							<td>Borrado?:</td>
+							<td>
+								<input type=radio name="borrado" value="0" CHECKED>No<br>
+								<input type=radio name="borrado" value="1">Si<br>
+							</td>
+							</tr>				
+						</table>
+						<br>
+						<input type="submit" name="submitAgregar" value="Agregar">
+						<input type="submit" onsubmit="ABM_Items.php" value="Cancelar">								
+					</form>

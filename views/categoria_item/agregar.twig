@@ -1,0 +1,30 @@
+					<h2>Agregar categoria item</h2>
+					<form method="post" action="ABM_CategoriasItem.php" id="form_cat_add" name="form_cat_add">
+						<table>
+							<tr>
+								<td>Descripcion:</td>
+								<td><input type="text" name="descripcion" id="descripcion" class="required"></td>
+							</tr>
+							<tr>
+							<td>Categoria padre:</td>
+							<td>
+								<select name="padre_id">
+								<option value="0">(Ninguna)</option>
+								{% for categoria in categorias %}
+									<option value="{{ categoria.getId() }}">{{ categoria.getDescripcion() }}</option>
+								{% endfor %}
+								</select>
+							</td>
+							</tr>	
+							<tr>
+							<td>Borrado?:</td>
+							<td>
+								<input type=radio name="borrado" value="0" CHECKED>No<br>
+								<input type=radio name="borrado" value="1">Si<br>
+							</td>
+							</tr>						
+						</table>
+						<br>
+						<input type="submit" name="submitAgregar" value="Agregar">
+						<input type="submit" onsubmit="ABM_CategoriasItem.php" value="Cancelar">								
+					</form>

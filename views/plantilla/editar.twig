@@ -1,0 +1,51 @@
+<h2>Editar Plantilla: {{ editar.getDescripcion() }}</h2>
+<form method="post" action="ABM_Plantillas.php" id="form_plantilla_edit" name="form_plantilla_edit" onsubmit="selectAllOptions('sel2');">
+						<input type="hidden" id="id" name="id" value={{ editar.getId() }}>
+						
+<table border="0">
+<tr>
+								<td>Descripcion:</td>
+								<td><input type="text" name="descripcion" id="descripcion" value="{{ editar.getDescripcion() }}" class="required"></td>
+							</tr>
+	<tr>
+		<td>
+			<h2>Items</h2>
+			<select name="sel1" size="15" multiple="multiple">
+			{% for item in otrosItems %}
+				<option value={{ item.getId() }}>{{ item.getDescripcion()					
+				~' - '~ categs[item.getId()].getDescripcion() 
+				~' - '~ tipoItems[item.getId()].getDescripcion() }}
+				</option>
+			{% endfor %}
+			</select>
+		</td>
+		<td align="center" valign="middle">
+			<input type="button" value="--&gt;"
+			 onclick="moveOptions(this.form.sel1, this.form.sel2);" /><br />
+			<input type="button" value="&lt;--"
+			 onclick="moveOptions(this.form.sel2, this.form.sel1);" />
+		</td>
+		<td>
+			<h2>Plantilla: {{ editar.getDescripcion() }}</h2>
+			<select name="selPHP[]" id="sel2" multiple="multiple" size="15">
+			{% for itemPlantilla in editarItemsPlantilla %}
+				<option value={{ itemPlantilla.getId() }}>{{ itemPlantilla.getDescripcion()					
+				~' - '~ categs[itemPlantilla.getId()].getDescripcion() 
+				~' - '~ tipoItems[itemPlantilla.getId()].getDescripcion() }}
+				</option>
+			{% endfor %}			
+			</select>
+		</td>
+	</tr>
+	<tr>
+							<td>Borrado?:</td>
+							<td>
+								<input type=radio name="borrado" value="0"  {% if editar.getBorrado() == 0 %} CHECKED {% endif %}>No<br>
+								<input type=radio name="borrado" value="1"  {% if editar.getBorrado() == 1 %} CHECKED {% endif %}>Si<br>
+							</td>
+							</tr>
+</table>
+<br>
+<input type="submit" name="submitEditar" value="Guardar cambios">
+<input type="submit" onsubmit="ABM_Plantillas.php" value="Cancelar">				
+</form>

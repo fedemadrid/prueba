@@ -1,0 +1,32 @@
+<form method="POST" action="ABM_Plantillas.php" id="form_plantilla_add" name="form_plantilla_add" onsubmit="selectAllOptions('sel2');">
+<table border="0">
+	<tr>
+		<td>
+			<h2>Items</h2>
+			<select name="sel1" size="15" multiple="multiple">
+			{% for item in items %}
+				<option value={{ item.getId() }}>{{ item.getDescripcion()					
+				~' - '~ categs[item.getId()].getDescripcion() 
+				~' - '~ tipoItems[item.getId()].getDescripcion() }}
+				</option>
+			{% endfor %}
+			</select>
+		</td>
+		<td align="center" valign="middle">
+			<input type="button" value="--&gt;"
+			 onclick="moveOptions(this.form.sel1, this.form.sel2);" /><br />
+			<input type="button" value="&lt;--"
+			 onclick="moveOptions(this.form.sel2, this.form.sel1);" />
+		</td>
+		<td>
+			<h2>Nueva Plantilla</h2>
+			<label>Descripcion: <input type='text' name='descripcion' class="required"></label>
+			<select name="selPHP[]" id="sel2" multiple="multiple" size="15">
+			
+			
+			</select>
+			<input type="submit" name="submitAgregar" value="Agregar">
+		</td>
+	</tr>
+</table>
+</form>

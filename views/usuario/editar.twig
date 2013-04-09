@@ -1,0 +1,49 @@
+<h2>Editar usuario: {{ editar.getUsername() }}</h2>
+					<form method="post" action="ABM_Usuarios.php" id="form_usr_edit" name="form_usr_edit">
+						<input type="hidden" id="id" name="id" value="{{ editar.getId() }}">
+						<table>
+							<tr>
+								<td>Nombre de usuario:</td>
+								<td><input type="text" name="username" id="username" value="{{ editar.getUsername() }}" class="required"></td>
+							</tr>
+							<tr>
+								<td>Password:</td>
+								<td><input type="text" name="password" id="password" value="{{ editar.getPassword() }}" class="required"></td>
+							</tr>
+							<tr>
+							<td>Tipo de cuenta:</td>
+							<td>
+								<select name="perfil_usuario_id">
+								
+								{% for perfil in perfiles %}
+									<option value="{{ perfil.getId() }}"
+									{% if editar.getPerfilUsuarioId() == perfil.getId() %}
+										selected='selected'
+									{% endif %}
+									>{{ perfil.getPerfil() }}</option>
+								{% endfor %}						
+																
+								</select>
+							</td>
+							</tr>
+							<tr>
+							<td>CV publico?:</td>
+							<td>
+								<select name="cv_publico">
+								<option value="0" {% if editar.getCvPublico() == 0 %} selected='selected' {% endif %}>No</option>
+								<option value="1" {% if editar.getCvPublico() == 1 %} selected='selected' {% endif %}>Si</option>
+								</select>
+							</td>
+							</tr>
+							<tr>
+							<td>Estado:</td>
+							<td>
+								<input type=radio name="usr_act" value="0" {% if editar.getActivo() == 0 %} CHECKED {% endif %}>Inactivo<br>
+								<input type=radio name="usr_act" value="1" {% if editar.getActivo() == 1 %} CHECKED {% endif %}>Activo<br>
+							</td>
+							</tr>
+						</table>
+						<br>
+						<input type="submit" name="submitEditar" value="Guardar cambios">
+						<input type="submit" onsubmit="ABM_Usuarios.php"  value="Cancelar">								
+					</form>

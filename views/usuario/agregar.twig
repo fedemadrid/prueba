@@ -1,0 +1,42 @@
+					<h2>Agregar usuario</h2>
+					<form method="post" action="ABM_Usuarios.php" id="form_usr_add" name="form_usr_add">
+						<table>
+							<tr>
+								<td>Nombre de usuario:</td>
+								<td><input type="text" name="username" id="username" class="required"></td>
+							</tr>
+							<tr>
+								<td>Password:</td>
+								<td><input type="text" name="password" id="password" class="required"></td>
+							</tr>
+							<tr>
+							<td>Tipo de cuenta:</td>
+							<td>
+								<select name="perfil_usuario_id">
+								{% for perfil in perfiles %}
+									<option value="{{ perfil.getId() }}">{{ perfil.getPerfil() }}</option>
+								{% endfor %}
+								</select>
+							</td>
+							</tr>
+							<tr>
+							<td>CV publico?:</td>
+							<td>
+								<select name="cv_publico">
+								<option value="0">No</option>
+								<option value="1" selected='selected'>Si</option>
+								</select>
+							</td>
+							</tr>
+							<tr>
+							<td>Estado:</td>
+							<td>
+								<input type=radio name="usr_act" value="0">Inactivo<br>
+								<input type=radio name="usr_act" value="1" CHECKED>Activo<br>
+							</td>
+							</tr>
+						</table>
+						<br>
+						<input type="submit" name="submitAgregar" value="Agregar">
+						<input type="submit" onsubmit="ABM_Usuarios.php"  value="Cancelar">								
+					</form>

@@ -1,0 +1,24 @@
+<h2>Configurar sitio:</h2>
+					<form method="post" action="ConfSitio.php" id="form_sitio_edit" name="form_sitio_edit" enctype="multipart/form-data">
+						Nombre del Sitio: <input type="text" name="nombre" value="{{ conf.nombre }}" class="required"></td>
+						<br>
+						<br>
+						Items por pagina: <input type="text" name="itemsxpag" value="{{ conf.itemsxpag }}" class="required"></td>
+						<br>
+						<br>
+						<h2>Estilo actual</h2>
+						<select name="estiloactual">								
+						{% for estilo in estilos %}
+							<option value="{{ estilo.getNombre() }}"{% if conf.estiloactual == estilo.nombre %} selected = 'selected' 
+										{% endif %}>{{ estilo.getNombre() }}</option>
+						{% endfor %}
+						</select>			
+						<br>
+						<br>
+						<input type="file" name='uploadedcss'>
+						<input type="submit" name="submitEditar" value="Guardar cambios">
+						<input type="submit" onsubmit="back-end.php"  value="Cancelar">								
+					</form>
+					{% if hayMensaje == true %}
+						<div> Mensaje: {{ mensaje }} </div>
+					{% endif %}	

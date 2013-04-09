@@ -1,0 +1,294 @@
+@charset "utf-8";
+@media only screen and (min-width:800px) {
+.wrapper-header, .wrapper-body, .wrapper-footer {min-width: 800px;}	
+}
+@media only screen and (min-width: 320px) and (max-width: 800px) {
+.wrapper-header, .wrapper-body, .wrapper-footer {min-width: 320px; max-width: 800px;}
+#header {width: 100% !important;}
+#sidebar {float: none !important; display: block; min-height: 50px; width:100% !important;}
+#main-content {float: none !important; display: block; width:100% !important;}
+#profile-picture {height: 100px !important;}
+.nav-text {display: block;}
+.button {margin-top: 5px;}
+.nav-header {float:none !important;}
+body {font-size: 12px !important;}
+.nav-sidebar-tab {padding-top: 5% !important;}
+.tab_bottom-nav {display: inline !important;}
+h1 {font-size: 16px !important;}
+h2 {font-size: 14px !important;}
+}
+@media only screen and (min-width: 240px) and (max-width: 320px) {
+.wrapper-header, .wrapper-body, .wrapper-footer {min-width: 240px; max-width: 320px;}
+#header {width: auto !important;}
+#sidebar {float: none !important; display: block; min-height: 50px; width:100% !important;}
+#main-content {float: none !important; display: block; width:100% !important;}
+#profile-picture {height: 100px !important;}
+.nav-text {display: block; font-size: 8px !important;}
+.button {margin-top: 5px;}
+.nav-header {float: none !important;}
+body {font-size: 8px !important;}
+.nav-sidebar-tab {padding-top: 5% !important;}
+.tab_bottom-nav {display: inline !important;}
+h1 {font-size: 12px !important;}
+h2 {font-size: 10px !important;}
+#logo {width: 160px !important;}
+}
+#page {
+	width: 100%;
+	height: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: fixed;
+	overflow: auto; 
+}
+/* 	==============
+	HEADER
+	============== */
+#header {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top:0;
+	left:0;
+}
+#top-nav {
+	width: 100%;
+	height: 55px;
+	float: left;
+	margin: auto;
+	background-color: black;
+}
+#bottom-nav {
+	width: 100%;
+	height: auto;
+	float: right;
+	background-color: dimgrey;
+	/*Efectos de transparencia */
+	/*filter:alpha(opacity=85);*/
+	/*-moz-opacity:.85;opacity:.85;*/
+}
+.wrapper-header {
+	width: 60%;
+	height: 100%;
+	margin: 0 auto;
+}
+.nav-header {
+	margin: 5px 0;
+	padding:0;
+}
+#nav-primary-home {
+	padding-left: 2%;
+	float: left;
+}
+#nav-primary-logout {
+	float: right;
+}
+/* 	==============
+	BODY
+	============== */
+#body {
+	width: 100%;
+	height: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin-top: 90px;
+	position: static;
+	background-color: #FFF;
+}
+.wrapper-body {
+	width: 60%;
+	height: 100%;
+	margin: 0 auto;
+	padding: 10px;
+	background-color: transparent;
+}
+#sidebar {
+	width: 30%;
+	height: 100%;
+	float: left;
+	border-radius: 10px;
+	background-color: black;
+}
+.nav-sidebar {
+	margin: auto;
+}
+.nav-sidebar-tab {
+	display: block;
+	padding: 5px 0;
+}
+#main-content {
+	width: 70%;
+	height: 100%;
+	padding-top: 5%;
+	float: right;
+	border-radius: 10px;
+	background-color: #FFFFD9;
+}
+#profile-card {
+	width: 100%;
+	height: 150px;
+	border-bottom: ridge;
+}
+#profile-picture {
+	width: 30%;
+	height: 150px;
+	float: left;
+}
+#profile-overview {
+	width: 70%;
+	height: 100%;
+	float: right;
+}
+#profile-info {
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+#profile-summary {
+	width: 100%;
+	height: 100%;
+}
+#profile-summary-wrap {
+	width: 100%;
+	height: 100%;
+}
+.photo-wrap {
+	width: 100%;
+	height: 100%;
+	margin: auto;
+}
+#box-btn {
+	width: 50%;
+	height: 100%;
+	margin: auto;
+	float: right;
+}
+#avatar {
+	width: 100%;
+	height: 100%;
+}
+.profile-card-tab {
+	font-size: 150%;
+}
+.profile-span-header {
+	color: #000;
+	background-color: #CCC;
+}
+.profile-span-tab {
+	font-style: oblique;
+}
+.profile-content l {
+	float: left;
+}
+.profile-input-tab {
+	color: #00F;
+	border: hidden;
+	font-style: oblique;
+	background-color: #FFFFD9;
+}
+.profile-content-tab {
+	border-bottom: ridge;
+}
+/*.label {
+	font-size: 1.5em;
+	color: blue;
+}
+.separador {
+	font-size: 1em;
+}
+.item {
+	font-size: 1em;
+}
+.dato_item {
+	font-size: 1em;
+	color: gray;
+	border: 0;
+	background-color: #FFFFD9;
+}*/
+/* 	==============
+	FOOTER
+	============== */
+#footer {
+	width: 100%;
+	height: auto;
+	position: static;
+	background-color: transparent;
+	clear: both;
+}
+.wrapper-footer {
+	width: 60%;
+	height: 100%;
+	margin: 0 auto;
+	border-radius: 10px;
+	background-color: transparent;
+}
+.nav-footer {
+	display: inline;
+	float: right;
+}
+#footer-tab {
+	background-color: #FFF;
+	color: #000;
+}
+/* 	==============
+	Typography
+	============== */
+h1 {
+	font-size: 100%;
+}
+h2 {
+	font-size: 75%;
+}
+/* 	==============
+
+	============== */
+.util {
+	float: right;
+	display: block;
+}
+.tab_util, .tab_bottom-nav, .tab_footer {
+	display: inline;
+}
+.nav-text {
+	color: #CCC;
+	display: block;
+}
+.nav-text:hover {
+	color: #FFF;
+}
+.button, .field {
+    border-radius: 10px;
+}
+#logo {
+	width: 200px;
+	height: 100%;
+}
+ul,ol {
+	padding: 0;
+	list-style: none;
+}
+/* 	==============
+	LINKS
+	============== */
+a:link { /* Enlaces sin visitar */
+color: #cccccc; /* Color especial y... */
+text-decoration:none; /* ...sin subrayado */
+}
+a:visited { /* Enlaces ya visitados */
+color: darkorange; /* Otro color... */
+text-decoration:none; /* ...y también sin subrayado */
+}
+a:hover { /* Efecto al pasar el puntero por encima del enlace */
+color: darkorange; /* Otro color distinto... */
+text-decoration:none;
+}
+a img { /* Enlaces en imágenes */
+border-width:0; /* Sin borde */
+}
+a.enlace {
+color: darkorange;
+}	

@@ -1,0 +1,19 @@
+{% for item in items %}
+					{% if item.getTipoItemId() == 1 %}
+						{# es un label #}
+						<hr><div class='label'>{{ item.getDescripcion() }}</div>
+					{% elseif item.getTipoItemId() == 3 %}
+						{# es un item #}
+						<div class='item'>{{ item.getDescripcion() }} :<br>
+						{% for dato in datos %}
+							{% for d in dato %}
+								{% if (d.getItemId() == item.getId()) and (d.getBorrado() == 0) %}
+									<div><span>¬></span><input type='{{ item.getTipoInput() }}' class='dato_item' readonly='readonly' value='{{ d.getContenido() }}'></div>
+								{% endif %}
+							{% endfor %}
+						{% endfor %}
+					{% else %}
+						{# es un separador #}
+						<div class='separador'><hr></div>	
+					{% endif %}
+				{% endfor %}

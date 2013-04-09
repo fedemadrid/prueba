@@ -1,0 +1,37 @@
+<a class='enlace' href="?agregar">Agregar usuario</a>
+					<table id="users-table">
+					<thead>
+						<tr>
+								<th>Nombre de usuario</th>
+								<th>Password</th>
+								<th>Tipo de cuenta</th>
+								<th>CV publico?</th>
+								<th>Activo?</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for usuario in usuarios | slice(inicio,itemsxpag) %}
+								<tr><td>{{ usuario.getusername() }}</td>
+								<td>{{ usuario.getPassword() }}</td>
+								<td>{{ usuario.getPerfil() }}</td>
+								{% if usuario.getCvPublico() == 1 %}
+									<td>Si</td>
+								{% else %}
+									<td>No</td>
+								{% endif %}
+								{% if usuario.getActivo() == 1 %}
+									<td>Si</td>
+								{% else %}
+									<td>No</td>
+								{% endif %}
+								<td><a class='enlace' href='?editar="{{ usuario.getId() }}"'>Editar</a></td></tr>
+							{% endfor %}																																																																																																																																	
+						<tbody>
+					</table>
+					{% for i in range(1, cantpag) %}
+					    <a class='enlace' href="?pagina={{ i }}">{{ i }}</a> 
+					{% endfor %}
+					{% if hayMensaje == true %}
+						<div> Mensaje: {{ mensaje }} </div>
+					{% endif %}
+					

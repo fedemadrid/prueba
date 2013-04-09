@@ -1,0 +1,9 @@
+    <div id="map_canvas" style="width: 640px; height: 400px;"></div>
+    
+	<form method='POST' name='form-google-maps' id='form-google-maps' action='MiUbicacion.php' onsubmit="updateInputs()"> 
+
+		<input type="hidden" name="latitud" id="latitud" value={{ ubic.latitud }}>
+		<input type="hidden" name="longitud" id="longitud" value={{ ubic.longitud }}>
+	
+		<input type="submit" name="submitEditar" value="Guardar">
+	</form>

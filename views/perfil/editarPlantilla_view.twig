@@ -1,0 +1,43 @@
+{% for item in items %}
+
+	{% set i = 1 %}
+	{#<input type='hidden' name='cat_id' value={{ item.getCategoriaId() }}>#}
+	
+	<input type='hidden' name='plant_id' value={{ p }}>
+	{% if item.getTipoItemId() == 1 %}
+		{# es un label #}
+		<hr><div class='label'>{{ item.getDescripcion() }}</div>
+	{% elseif (item.getTipoItemId() == 3) %}
+		{# es un item #}
+		<div class='item'>{{ item.getDescripcion() }} :<br>
+
+		{% if datos[item.getId()] | length > 0 %} {# si el usuario tiene datos cargados #}
+			{% for dato in datos %}
+				{% for d in dato %}
+					{% if (d.getItemId() == item.getId()) and (d.getBorrado() == 0) %}
+						{% if item.getRepetible() == 1 %} 
+							{% set idRepetible = item.getId()~'_'~i %}
+							<div><input type={{ item.getTipoInput() }} name={{ idRepetible }} class='dato' value={{ d.getContenido() }}></div>
+							{% set i = i+1 %}
+						{% else %}
+							<div><input type={{ item.getTipoInput() }} name={{ item.getId() }} class='dato' value={{ d.getContenido() }}></div>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			{% endfor %}
+		{% endif %}
+		
+		{% if item.getRepetible() == 1 %}
+			<a class='enlace' href='#' onclick='AgregarCampos({{ item.getId() }},{{ item.getTipoInput() }},{{ i }})'>Agregar Campo</a>
+			<div id={{ item.getId() }}>
+			</div>
+		{% elseif datos[item.getId()] | length <= 0 %}
+			{# si el usuario no tiene datos cargados #}
+			<input type={{ item.getTipoInput() }} name={{ item.getId() }} class='dato' value=''></div>
+		{% endif %}
+		</div>
+	{% else %}
+		<div class='separador'><hr></div>
+	{% endif %}
+
+{% endfor %}
